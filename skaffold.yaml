@@ -1,0 +1,30 @@
+apiVersion: skaffold/v1beta2
+kind: Config
+build:
+  artifacts:
+  - image: changeme
+    context: .
+    docker: {}
+  tagPolicy:
+    envTemplate:
+      template: '{{.DOCKER_REGISTRY}}/sguillory6/spring-petclinic-config-server:{{.VERSION}}'
+  local: {}
+deploy:
+  kubectl: {}
+profiles:
+- name: dev
+  build:
+    artifacts:
+    - docker: {}
+    tagPolicy:
+      envTemplate:
+        template: '{{.DOCKER_REGISTRY}}/sguillory6/spring-petclinic-config-server:{{.DIGEST_HEX}}'
+    local: {}
+  deploy:
+    helm:
+      releases:
+      - name: spring-petclinic-config-server
+        chartPath: charts/spring-petclinic-config-server
+        setValueTemplates:
+          image.repository: '{{.DOCKER_REGISTRY}}/sguillory6/spring-petclinic-config-server'
+          image.tag: '{{.DIGEST_HEX}}'
