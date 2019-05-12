@@ -12,8 +12,8 @@ plugins {
 version = buildVersion
 description = "Spring Petclinic Config Server"
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
 
 jar {
     enabled = true
