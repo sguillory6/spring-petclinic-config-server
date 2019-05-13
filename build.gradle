@@ -177,7 +177,7 @@ docker {
 //    tags "1.0.0"
 
     //located in the build context which is a folder in build/docker
-    dockerfile file("docker/Dockerfile")
+    dockerfile file("Dockerfile")
 
     //directly reference the Jar file in the Dockerfile
     def artifact = "${archivesBaseName}-${buildVersion}-boot.jar"
