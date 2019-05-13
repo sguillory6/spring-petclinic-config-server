@@ -3,8 +3,8 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: draft
-  tag: dev
+  repository: 484004424721.dkr.ecr.us-west-2.amazonaws.com/sguillory6/spring-petclinic-config-server
+  tag: 0.0.7
   pullPolicy: IfNotPresent
 
 # define environment variables here as a map of key: value
